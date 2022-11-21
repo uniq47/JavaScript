@@ -1,6 +1,11 @@
 //const 
 //var 
-//let   these are the three ways to declare a variable
+//let  --> over write the number these are the three ways to declare a variable
+
+let number=10;
+console.log(number)
+number=50;
+console.log(number)
 
 const bootcamp = "python";
 console.log(typeof bootcamp);
