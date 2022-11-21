@@ -26,9 +26,17 @@ console.log(newDevelopment);
 //change one of them it will change the other one, they are pointin to the same object 
 //in the memory heap,if we change something in one of them it will change the other one.
 console.log(development);
+//console.dir(window.document.querySelector(".root").textContent="yooo");
+console.dir(window.document.querySelector('.root'));
 
 
+//to get the properties ->.dir
 
+//jS is a single threaded language so it can do one
+// thing at a time, js only have one locatoin to execute the code =call stack, 
+//if any thing is taking to much time it will block execution of the code, blocks al lthe code , 
+//not good for processing big data, so we use web workers to do the heavy lifting in the background
+ 
 
 // //to add new property to object
 // development.fullstack="java";
