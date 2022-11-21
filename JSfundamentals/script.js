@@ -1,69 +1,40 @@
-//glaobal scope
-//function scope
-//block scope
-//
+//stack constains premitive values so pass by value is realted to stack 
 
-//  const fName= "unique";
+//heap contains objects(non primitive values) sos every objects are stoped in heap 
+//so pass  byu refrence is related to heap
 
-// //function scope
-// function calcAge(birthYear) // bornYear is a parameter
-// {
-    
-//     const age= 40;
-    
-//   //("", 0, false, undefined, null NaN )is false value and " " is true value;
+let language = "python";
+let oldLanguage = language;
+language ="javaScript";
 
-//     if(birthYear>1980)
-//     {
-//         const add = function(a,b){
-//             console.log(a+b);
-//         };
-//         // function add(a,b)
-//         // {
-//         //     console.log(a+b);
-            
-//         // }
-    
-// } 
-//           add(2,4)
-// }
-// //calling a funcion, running a function, invoking a function
+console.log(language);
+console.log(oldLanguage);
 
-// calcAge(1990);
-// //1990 is an argument
+const development={
+    frontend:"javascript", //key(name of the properrty):value
+    backend:"python"
+};
+
+console.log(development);
+const newDevelopment= development;
+
+console.log(newDevelopment);
+
+newDevelopment.backend="nodejs";
+console.log(newDevelopment);
+// they are object and  linked in memory heap by refrence so if we (non primitive)
+//change one of them it will change the other one, they are pointin to the same object 
+//in the memory heap,if we change something in one of them it will change the other one.
+console.log(development);
 
 
-// // it has hoisting because of function declaration
-// addDeclearation(10,20);
-// //function declaration
-// function addDeclearation(a,b){
-// console.log(a+b);
-// }
 
 
-// //function expression
+// //to add new property to object
+// development.fullstack="java";
+// console.log(development);
 
-// const addExp=function(a,b){
-//     console.log(a+b);
-// };
-// addExp(10,20);
+// //to delete a property from an object
+// delete development.fullstack;
+// console.log(development);
 
-
-// //arrow function
-
-// const addArr=(a,b) => {
-//     console.log(a+b);
-// };
-// addArr(10,20);
-
-//const cant have double name but var can 
-
-const firstname = "Alex";
-function calcAge(birthYear)
-{
-    const firstname="uniq";
-    console.log(firstname);
-}
-
-calcAge(1990);
-console.log(firstname);
