@@ -1,48 +1,67 @@
-//stack constains premitive values so pass by value is realted to stack 
-
-//heap contains objects(non primitive values) sos every objects are stoped in heap 
-//so pass  byu refrence is related to heap
-
-let language = "python";
-let oldLanguage = language;
-language ="javaScript";
-
-console.log(language);
-console.log(oldLanguage);
-
-const development={
-    frontend:"javascript", //key(name of the properrty):value
-    backend:"python"
-};
-
-console.log(development);
-const newDevelopment= development;
-
-console.log(newDevelopment);
-
-newDevelopment.backend="nodejs";
-console.log(newDevelopment);
-// they are object and  linked in memory heap by refrence so if we (non primitive)
-//change one of them it will change the other one, they are pointin to the same object 
-//in the memory heap,if we change something in one of them it will change the other one.
-console.log(development);
-//console.dir(window.document.querySelector(".root").textContent="yooo");
-console.dir(window.document.querySelector('.root'));
+//for loop
+//for Off
+//for in 
+//while loop
 
 
-//to get the properties ->.dir
+//for Each
+//Map
+//filter
+//reduce
 
-//jS is a single threaded language so it can do one
-// thing at a time, js only have one locatoin to execute the code =call stack, 
-//if any thing is taking to much time it will block execution of the code, blocks al lthe code , 
-//not good for processing big data, so we use web workers to do the heavy lifting in the background
- 
+//const arr=[7,8,9,10];
+//imperative
+// for (let i =0;i<arr.length;i++){
+//     console.log(arr[i]);
+// }
+//declarative code/ get the values of the array
+// for(number of arr){
+//     console.log(number)
+// }
 
-// //to add new property to object
-// development.fullstack="java";
-// console.log(development);
+// for(i in arr){
+//     console.log(arr[i]);
+// }
+//if we dont know when to end then we use while loop
+// let index=0;
+// while(index<8){
+//     console.log("runnding ")
+//     index++;
+// }
 
-// //to delete a property from an object
-// delete development.fullstack;
-// console.log(development);
+// imp in react
+
+//forEach, map, filter, reduce
+
+// function display(abcd){
+//     // console.log(a);
+//     abcd(10);// calls display(function displayNumber(number){console.log(number)});
+// }
+//call back function
+//displaying function inside the function as a paramneter is called callback function
+//we can pass number array everyhting as a parameter
+// display(function (number){
+//     console.log(number)
+// });
+
+// function displayName(number){
+//     console.log(number);
+// }
+
+
+const arr=[7,8,9,10,20 ];
+//console.log(arr);
+
+// function arrayFunction(){
+//     console.log("Running");
+
+//for each will call the finction for each element in the array
+// for each will accept only function
+// arr.forEach(function arrayFunction(){
+//          console.log("Running")});
+
+//arr.forEach((item,index )=>console.log(index));
+
+arr.map((item,index )=>console.log(index)); 
+
 
