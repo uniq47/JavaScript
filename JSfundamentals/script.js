@@ -1,68 +1,69 @@
-//const 
-//var 
-//let  --> over write the number these are the three ways to declare a variable
+//glaobal scope
+//function scope
+//block scope
+//
+
+//  const fName= "unique";
+
+// //function scope
+// function calcAge(birthYear) // bornYear is a parameter
+// {
+    
+//     const age= 40;
+    
+//   //("", 0, false, undefined, null NaN )is false value and " " is true value;
+
+//     if(birthYear>1980)
+//     {
+//         const add = function(a,b){
+//             console.log(a+b);
+//         };
+//         // function add(a,b)
+//         // {
+//         //     console.log(a+b);
+            
+//         // }
+    
+// } 
+//           add(2,4)
+// }
+// //calling a funcion, running a function, invoking a function
+
+// calcAge(1990);
+// //1990 is an argument
 
 
-const bootcamp = "python";
-console.log(typeof bootcamp);
+// // it has hoisting because of function declaration
+// addDeclearation(10,20);
+// //function declaration
+// function addDeclearation(a,b){
+// console.log(a+b);
+// }
 
-const myCountry= "Nepal";
-console.log(myCountry);
 
-const age=45;
-console.log(typeof age);
+// //function expression
 
-//primitive: Number, String, Boolean, Null, Undefined, Symbol
-//non-primitive: Object, Array, Function-> all are objects in JS 
+// const addExp=function(a,b){
+//     console.log(a+b);
+// };
+// addExp(10,20);
 
-document.write("hello") //document.write is used to write in html file in js
-console.log(document)
 
-//const evenNumbers=[2,"hello",4,6,8,10,[1,2]];
-const evenNumbers= new Array(2,"hello",4,6,8,10,[1,2]);
-console.log(evenNumbers[1])
+// //arrow function
 
-//objects in js so 
-const bootcourse={
-    course: 'React',
-    duration: "3 months",
-};
+// const addArr=(a,b) => {
+//     console.log(a+b);
+// };
+// addArr(10,20);
 
-const arrayBootcamp=["React","3 months "]
-console.log(bootcourse[1]);
+//const cant have double name but var can 
 
-//functions in js
-
-function addTwoNumbers(first, second){
-    return first+second;
+const firstname = "Alex";
+function calcAge(birthYear)
+{
+    const firstname="uniq";
+    console.log(firstname);
 }
 
-const result = addTwoNumbers(1,2);
-console.log(result);
-
-let number=10;
-console.log(number)
-number=50;
-console.log(number)
-
-
-//statement condiionals
-
-number =40;
-if(number===50){
-    console.log("value is fifty")
-}else{
-    console.log("value is not fifty")
-}
-
-// this is an expressing condition so we can store it in a variable
-//ternarty operator
-
-//condition ?"":"";
-const isValueFifty = 
-number===50 
-? console.log("value is fifty")
-: console.log("value is not fifty")
-
-console.log(isValueFifty)
-
+calcAge(1990);
+console.log(firstname);
