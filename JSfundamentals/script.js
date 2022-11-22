@@ -63,7 +63,7 @@
 //arr.forEach((item,index )=>console.log(index));
 
 //arr.forEach((item)=>console.log(item));
-
+//array
 const obj={
     name: 'unique',
     age:23,
@@ -78,6 +78,16 @@ const obj={
         allhours:[1800,1900,2100]
     }
 };
+
+
+
+const availableHours = obj.freeHours.allhours[0];
+console.log(availableHours);
+
+
+
+
+
 
 //object structure
 //order done matter
@@ -99,8 +109,6 @@ console.log(allhours[1]);
 //const hourOne = obj.freeHours.hourOne;
 console.log(hourOne);
 
-const availableHours = obj.freeHours.allhours[0];
-console.log(availableHours);
 
 //array structure
 // const arr=[1,2,[20,30],4];
@@ -113,9 +121,19 @@ console.log(availableHours);
 
 
 
+ const arr=[1,2,3];
+// const third=arr[2];
+// console.log(thirdElement);
 
 
+// const fourthElement=arr[3];
+// console.log(fourthElement);
 
+
+//destructuring notation
+const [,,c=0]=arr;
+
+console.log(c);
 
 
 
