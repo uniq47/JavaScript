@@ -81,33 +81,68 @@ const obj={
 
 
 
-const availableHours = obj.freeHours.allhours[0];
-console.log(availableHours);
+// const availableHours = obj.freeHours.allhours[0];
+// console.log(availableHours);
+
+
+//object distructuring 
+
+
+const {age:myAge,
+    favNumber,
+    freeHours:{
+        hourOne,
+        allhours:[firstHour]},
+}=obj //myAge is the alias of age
+console.log(myAge);
+console.log(favNumber);
+console.log(firstHour);
+
+
+
+// const arr=[1,2,3,40, [1,2]];
+
+
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
+// const d = arr[3];
+// const e = arr[4];
+
+
+// const a = 1;
+// const b = 2;
+// const c= 3;
+//destructuring array
+
+//const[a,b,c,d,e]=arr;
+
+//console.log(a,b,c,d,e)
+ 
+
+
+
+
+
+// //object distructuring structure
+// //order done matter
+// //rename age to myAge 
+// const{age:myAge,
+//     favNumber
+//     ,freeHours: {hourOne,allhours}
+// } =obj;
+
+// // console.log(myAge);
+// // console.log(favNumber);
+// console.log(allhours[1]);
 
 
 
 
 
 
-//object structure
-//order done matter
-//rename age to myAge 
-const{age:myAge,
-    favNumber
-    ,freeHours: {hourOne,allhours}
-} =obj;
-
-// console.log(myAge);
-// console.log(favNumber);
-console.log(allhours[1]);
-
-
-
-
-
-
-//const hourOne = obj.freeHours.hourOne;
-console.log(hourOne);
+// //const hourOne = obj.freeHours.hourOne;
+// console.log(hourOne);
 
 
 //array structure
@@ -121,7 +156,7 @@ console.log(hourOne);
 
 
 
- const arr=[1,2,3];
+//  const arr=[1,2,3];
 // const third=arr[2];
 // console.log(thirdElement);
 
@@ -131,9 +166,9 @@ console.log(hourOne);
 
 
 //destructuring notation
-const [,,c=0]=arr;
+// const [,,c=0]=arr;
 
-console.log(c);
+// console.log(c);
 
 
 
