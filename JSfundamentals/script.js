@@ -49,7 +49,7 @@
 // }
 
 
-const arr=[7,8,9,10,20 ];
+//const arr=[7,8,9,10,20 ];
 //console.log(arr);
 
 // function arrayFunction(){
@@ -62,6 +62,82 @@ const arr=[7,8,9,10,20 ];
 
 //arr.forEach((item,index )=>console.log(index));
 
-arr.map((item,index )=>console.log(index)); 
+//arr.forEach((item)=>console.log(item));
+
+const obj={
+    name: 'unique',
+    age:23,
+    favNumber:[1,2,3,4],
+    calcAge: function(){
+        console.log('running calcAge function');// functoin insde a object is called method
+        return 'your age';
+    },
+    freeHours:{
+        hourOne:'six-seven',
+        hourTwo:2100,
+        allhours:[1800,1900,2100]
+    }
+};
+
+//object structure
+//order done matter
+//rename age to myAge 
+const{age:myAge,
+    favNumber
+    ,freeHours: {hourOne,allhours}
+} =obj;
+
+// console.log(myAge);
+// console.log(favNumber);
+console.log(allhours[1]);
+
+
+
+
+
+
+//const hourOne = obj.freeHours.hourOne;
+console.log(hourOne);
+
+const availableHours = obj.freeHours.allhours[0];
+console.log(availableHours);
+
+//array structure
+// const arr=[1,2,[20,30],4];
+// //const thirdElement = arr[2]
+// //console.log(thirdElement)
+
+
+// const [,,[ ,thirdElement]]=arr;
+// console.log(thirdElement);
+
+
+
+
+
+
+
+
+
+
+
+//console.log(obj.calcAge());
+
+// const display= function (number){
+//     if (number>15)
+//     {
+//         return "greater than 15";
+//     }
+//     return "less than 15";
+// };
+// console.log(display(20));
+
+
+
+
+
+
+
+
 
 
