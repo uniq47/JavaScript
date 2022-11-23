@@ -2,15 +2,13 @@
 //strict model
 "use strict";
 
-// to create a schema or blueprint for our data
-//consctructor function
 
+ const obj={
+    name:"unique",
+    age:31,
+    calcAge: function(){
+        console.log(this);
+ },
+};
 
-
-
-//const private ="Hospital";
-
-for ( i=0; i<10; i++){
-    console.log(i);
-}
-
+console.log(obj.favNumbers?.firstNUmber);
