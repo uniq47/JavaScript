@@ -6,12 +6,17 @@
 const Person = function (firstName){ // parameter is firstName
     this.first = firstName;// or this.a=firstName; or this.firstName=firstName;//fiorsti s the properties of the object
 //if we write this keyword inside the object , it will 
+//point to the object that is created from this constructor function
+//this keyword is a special keyword that is created for every execution context
+this.calcAge = function(birthYear){
+    return 2022 - birthYear;
+}
 };
 
 //how to create a object , we created a object from the constructor function Person
 const uniqObj =new Person ('unique') //argument is uniqe
 console.log(uniqObj);
-
+console.log(uniqObj.calcAge(1999))
 const newObj =new Person ('aayam') //argument is new
 console.log(uniqObj);
 
