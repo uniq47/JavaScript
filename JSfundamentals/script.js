@@ -1,20 +1,33 @@
  'use strict';
-//synchronous function
- //asrychronous function
-console.log("Running before the function");
 
-async function add(){
-    await fetch("https://jsonplaceholder.typicode.com/todos/1");
-    console.log("running Inside function first");
-    console.log("running Inside function second");
-}
+ //set and map methods
+// main aim of set method is to remove duplicate values from array
+ const numberSet = new Set([1,2,3,4,5]);
+ console.log(numberSet);
+ console.log(numberSet.has(3));
+ console.log(numberSet.add(6));
+ console.log(numberSet.delete(3));
+ console.log(numberSet);
 
-console.log("Running after the function");
+ numberSet.clear();
 
-add();
+ console.log(numberSet);
 
-console.log("Running after the function");
+ //numberSet.map
 
-for(let i =0; i<10000; i++){
-    console.log("Runinng");
-}
+ const menuItems= new Set(["pizza","burger", "momo"])
+
+ console.log(menuItems);
+
+ for(const item of menuItems){
+     console.log(item);
+ }
+// converting set to array
+ //console.log(...mainMenu);
+
+ // putting array in the backets of set
+    const mainMenu = new Set([...menuItems]);
+
+    // so we can use set methods to delete dupliate elements then we can convert it to set and then to array
+
+
