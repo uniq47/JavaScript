@@ -1,33 +1,15 @@
- 'use strict';
+"use strict";
+//map is used to remove time conplexity of O(n^2) to O(n)
+//map is used to store key value pairs
+//
+const resturant = new Map();
+resturant.set("open", 10).set("close",22);
+console.log(resturant);
+console.log(resturant.get("open"));
 
- //set and map methods
-// main aim of set method is to remove duplicate values from array
- const numberSet = new Set([1,2,3,4,5]);
- console.log(numberSet);
- console.log(numberSet.has(3));
- console.log(numberSet.add(6));
- console.log(numberSet.delete(3));
- console.log(numberSet);
-
- numberSet.clear();
-
- console.log(numberSet);
-
- //numberSet.map
-
- const menuItems= new Set(["pizza","burger", "momo"])
-
- console.log(menuItems);
-
- for(const item of menuItems){
-     console.log(item);
- }
-// converting set to array
- //console.log(...mainMenu);
-
- // putting array in the backets of set
-    const mainMenu = new Set([...menuItems]);
-
-    // so we can use set methods to delete dupliate elements then we can convert it to set and then to array
+// const mapArray = [...resturant];
+// console.log(...mapArray[0]);
+// we use this key value pair to check if the value is present or not
+console.log(resturant.has("open"));
 
 
