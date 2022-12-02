@@ -24,15 +24,45 @@ console.log(window);
 //     console.log("promise is rejected")
 // });
 
-//fetched the result form url
-const response = fetch(url)
-.then((response) => response.json())//one is for fetch(url) 
-.then((data)=>console.log(data))//and other is for response.json()
-.catch((error)=>console.log(error));
+// //fetched the result form url
+// const response = fetch(url)
+// .then((res) => res.json())//one is for fetch(url) 
+// .then((data)=>console.log(data))//and other is for response.json()
+// .catch((error)=>console.log(error));
 
+// const fetchProfile = async () => {
+//     const res = await fetch(url);
+//     const data = await res.json();
+//         console.log(data);
 
+// }
+// using immediately invoked function expression 
+(async () => {
+    
+    try{
+        const res = await fetch(url);
+        const data = await res.json();
+    }catch(error){
+        console.log("error occured")
+    }
 
+        console.log(data)})();
 
+const fetchProfile= async () => {
+    
+            try{
+                const res = await fetch(url);
+                const data = await res.json();
+            }catch(error){
+                console.log("error occured")
+            }
+        }
+
+        fetchProfile();
+
+// cant do catch in async function
+
+//we can use try catch block in async function
 
 
 //.catch(() => console.log("promise is rejected"));

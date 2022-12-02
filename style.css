@@ -80,7 +80,7 @@ small {
 
 .search-usernameBtn {
   font-size: 1.3rem;
-  padding: 0.2rem 0.8rem;
+  padding: 0.2rem .8rem;
   background-color: var(--accent-blue);
   color: var(--text);
   border: none;
@@ -141,7 +141,7 @@ ul {
   padding: 2rem;
   margin-top: 1rem;
   border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-right-radius: 20x;
 }
 
 .user-info figure {
