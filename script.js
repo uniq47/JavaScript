@@ -1,13 +1,15 @@
 'use strict';
 
 //dir getsthe property of the object
-console.log(document);
+//console.dir(document)
+//console.log(document);
 /// for id we use # and for class we use .
 //querySelector is used to select the element from the dom and does the job of getElementById
 // like this we can select the element from the dom 
 const inputBox = document.querySelector("#search-username");
 const searchBtn= document.querySelector("#search-usernameBtn")
 const userInfo= document.querySelector('#intro');
+//console.log(userInfo);
 const loading= document.querySelector('#loading');
 const reposSection= document.querySelector('.repos');
 const repoList= document.querySelector(".repos-list");
@@ -19,7 +21,7 @@ const fileInput= document.querySelector('.filter-repos');
 //const userInfo= document.querySelector('#intro');, so where is the userInfo? in the index.html, , means we will insert something in between those two tags,
 // <div id="intro"></div> using innerHTML userInfo.innerHTML=displayProfile(data);, 
 const url="https://api.github.com/users/"; 
-const usernameInput = "rajatgupta1998";
+const usernameInput = "gorakhjoshi";
 
 //<section class="intro" id="intro">
 const displayProfile = (profile) => {
@@ -49,19 +51,38 @@ const displayProfile = (profile) => {
 }
 
 const fetchProfile= async() => {
+  //console.log(inputBox.value);
+    loading.innerText="Loading...";
     try{//if want to install js insdie your string tben use ``
-        const res = await fetch(`${url}${usernameInput}`);
-        const data = await res.json();
-        //data is the json object that we get from the api and we can access the properties of the object using dot notation that is data.name
-       // console.log(data);
-       //calling the function to displayProfile and adding the data
-       //displayProfule(data);-> havent sent this back to our html 
-       // using innerHTML we can send somethingfrom JS back to Html as string
-       // but with in our string we have html sysnt
-       // we are sending our html back to our html
-        userInfo.innerHTML=displayProfile(data);
+// if bio information constains the bio information in the display and else if we dont have the bio we will not set any inner html 
+        if(data.bio){
+          const res = await fetch(`${url}${usernameInput}`);
+          const data = await res.json();
+          //data is the json object that we get from the api and we can access the properties of the object using dot notation that is data.name
+          //console.log(data);
+         //calling the function to displayProfile and adding the data
+         //displayProfule(data);-> havent sent this back to our html 
+         // using innerHTML we can send somethingfrom JS back to Html as string
+         // but with in our string we have html sysnt
+         // we are sending our html back to our html
+          userInfo.innerHTML=displayProfile(data);
+          //console.log(userInfo);
+         // else if we dont have the bio we will not set any inner html if we didnt get the nbio
+        }else{
+          //making it empty 
+          
+          userInfo.innerText="";
+          userSection.innerText="";
+          //loader we will send css to the loader
+          loading.innerHTML=`<h1 style = "color: red"> Username Not Found! </h1>`;
+        }
+
        }catch(error){
-        console.log("error occured")
+        console.log("error occured");
+        // we have supplied inner text we need to remove it ;
+        loading.innerText="";
+
+        
         }
 };
 fetchProfile();
@@ -72,7 +93,7 @@ const fetchRepos = async () => {
         const res = await fetch(`${url}${usernameInput}/repos`);
         //get the data in json format from the response object and store it in data variable
         const data = await res.json();
-        //console.log(data);  
+        console.log(data);  
     }catch(error){
         console.log(error)
     }
