@@ -22,7 +22,7 @@ const fileInput= document.querySelector('.filter-repos');
 //const userInfo= document.querySelector('#intro');, so where is the userInfo? in the index.html, , means we will insert something in between those two tags,
 // <div id="intro"></div> using innerHTML userInfo.innerHTML=displayProfile(data);, 
 const url="https://api.github.com/users/"; 
-const usernameInput = "uniq47";
+const usernameInput = "alex";
 
 //<section class="intro" id="intro">
 const displayProfile = (profile) => {
@@ -122,30 +122,40 @@ const fetchRepos = async () => {
         const res = await fetch(`${url}${usernameInput}/repos`);
         //get the data in json format from the response object and store it in data variable
         const data = await res.json();
-      displayRepos(data);
-        //console.log(data);  
+        displayRepos(data);
+      console.log(data);  
     }catch(error){
         console.log(error)
+       loading.innerText="";
     }
 }
 
 fetchRepos();
 
   const displayRepos = (repos) =>{
-  //reposSection.classList.remove("hide") is used to remove the hide class from the reposSection with the help of classList.remove("hide")
+ // reposSection.classList.remove("hide") is used to remove the hide class from the reposSection with the help of classList.remove("hide")
   reposSection.classList.remove("hide");
+  
   //fileInput.classList.remove("hide") is used to remove the hide class from the fileInput
   fileInput.classList.remove("hide");
- // console.log(repos);
+  //console.log(repos);
   for(const repo of repos){
     //document.createElement is used to create a new element in the DOM and store it in the listItems variable
-   const listItems = document.createElement("li");
-   console.log(listItems)
+    const listItem = document.createElement("li");
+    console.log(listItem)
    //innerHTML is used to set the innerHTML of the element
     //listItems.innerHTML is used to set the innerHTML of the listItems 
     //so we are setting the innerHTML of the listItems to the name of the repo
-    listItems.innerHTML=`<h3>${repo.name}</h3>`
-   // console.log(listItems)
+    listItem.innerHTML=`
+    <h3>${repo.name}</h3>
+    <br/>
+    <br/>
+    <div>${devicons[repo.language]}</div>
+    <a href=${repo.html_url}> View Repo </a>
+    `
+    //repoList.append(listItems);
+    repoList.append(listItem);
+    console.log(listItem)
     //console.log(repo);
   //  console.log(listItems);
     //repoList.append(listItems);
