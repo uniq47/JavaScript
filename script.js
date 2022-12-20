@@ -9,12 +9,13 @@
 // to select it form html in javascript we use querySelector
 const inputBox = document.querySelector("#search-username");
 const searchBtn= document.querySelector("#search-usernameBtn")
+console.dir(searchBtn);
 const userInfo= document.querySelector('#intro');
 //console.log(userInfo);
 const loading= document.querySelector('#loading');
 const reposSection= document.querySelector('.repos');
 const repoList= document.querySelector(".repos-list");
-const fileInput= document.querySelector('.filter-repos');
+const filterInput= document.querySelector('.filter-repos');
 
 // main concept
 //we need to send the html in dataPrile in the form of string back to our index.html from our JS using something like userInfo.innerHTML=displayProfile(data);, 
@@ -22,7 +23,8 @@ const fileInput= document.querySelector('.filter-repos');
 //const userInfo= document.querySelector('#intro');, so where is the userInfo? in the index.html, , means we will insert something in between those two tags,
 // <div id="intro"></div> using innerHTML userInfo.innerHTML=displayProfile(data);, 
 const url="https://api.github.com/users/"; 
-const usernameInput = "alex";
+//cosnt usernameInput= inputBox.value;
+
 
 //<section class="intro" id="intro">
 const displayProfile = (profile) => {
@@ -36,7 +38,7 @@ const displayProfile = (profile) => {
           <div>
             <h2>
               <a href=${profile.html_url}><strong>${profile.name}</strong></a
-              >&nbsp;<strong class="username">${profile.username}</strong>
+              >&nbsp;<strong class="username">${profile.login}</strong>
             </h2>
 
             <p>${profile.bio}.</p>
@@ -64,9 +66,17 @@ const displayProfile = (profile) => {
  //sync is line by line 
  //arrow function
  //const fetchProfile = () =>{}
+ 
 const fetchProfile= async() => {
 //we need input here
-  //console.log(inputBox.value);
+// getting the vlaue from here
+//const inputBox = document.querySelector("#search-username");
+//used the value available inside the value at the time of when event occured 
+//search is clicked we recieve the actual username in the async function 
+//and we used it and provided to fetch. so lets just use the username value in a variable
+//so we take from the input.
+//
+const usernameInput= inputBox.value;
   // before we get the data we will show the
   // loading with the help of innerText
   loading.innerText="Loading...";
@@ -111,10 +121,12 @@ const fetchProfile= async() => {
         loading.innerText="";
       }
 };
-fetchProfile();
+
 
 
 const fetchRepos = async () => {
+  //saving the value of the input box in the usernameInput variable 
+ const usernameInput = inputBox.value;
   //innertext is used to set the text inside the element so the string that we pass will be set as the text inside the element
     
     try{//get the repos of the user 
@@ -130,19 +142,22 @@ const fetchRepos = async () => {
     }
 }
 
-fetchRepos();
+
 
   const displayRepos = (repos) =>{
  // reposSection.classList.remove("hide") is used to remove the hide class from the reposSection with the help of classList.remove("hide")
   reposSection.classList.remove("hide");
   
   //fileInput.classList.remove("hide") is used to remove the hide class from the fileInput
-  fileInput.classList.remove("hide");
+  filterInput.classList.remove("hide");
   //console.log(repos);
   for(const repo of repos){
     //document.createElement is used to create a new element in the DOM and store it in the listItems variable
     const listItem = document.createElement("li");
-    console.log(listItem)
+    //to add repo class to the listItems
+    //classlist is used to add a class to the element
+    listItem.classList.add("repo");
+    //console.log(listItem)
    //innerHTML is used to set the innerHTML of the element
     //listItems.innerHTML is used to set the innerHTML of the listItems 
     //so we are setting the innerHTML of the listItems to the name of the repo
@@ -155,12 +170,62 @@ fetchRepos();
     `
     //repoList.append(listItems);
     repoList.append(listItem);
-    console.log(listItem)
+    //console.log(listItem)
     //console.log(repo);
   //  console.log(listItems);
     //repoList.append(listItems);
   }
   }
+  //add event listener functions accpets two arguments,
+  // one is the name of the event that can be found in the documentation of the event in the mdn
+  // second one is the callback function that will be called when the event is fired
+  //ex when we clicked on the search button the callback function will be called
+  //click is the name of the event, 
+  //function that will be called when the event is fired
+  //when some even will be fired the callback function will be called
+   
+  //developers prefwer to wite e there instead of event
+  // we can accept somethong random inside the callback function but we will use e
+  //form map function we are getting items automatically and then method ,
+  // when cosuming the promoise we are getting 
+  //.then mehtod and inside that method  we called call backfunciton 
+  //and inside there we called res there and that res is automatically taking the responce 
+  // her we are passing the event or e the console is event itslef, pointer event, clicked by pointer
+  
+  searchBtn.addEventListener("click",(e) => {// used in map used in then method
+    //calling funciton to fetch the profile after clicking the search button and the text is there
+    console.log(searchBtn.value)
+    fetchProfile();
+    fetchRepos();
+    inputBox.value='';
+    //console.log(e.target.value)//this is the event
+  });
+
+  filterInput.addEventListener("input",(e) => {// used in map used in then method
+   // console.log(e.target.value)//this is the event
+    const search = e.target.value.toLowerCase;
+    //const searchLowerText= search.toLowerCase();
+    const repos = document.querySelectorAll(".repo");
+
+    for(const repo of repos){
+      const repoText= repo.innerText.toLowerCase();
+      
+      if(repoText.includes(search)){
+        repo.classList.remove("hide");
+      }else{
+        repo.classList.add("hide");
+      }
+
+    }
+   
+  });
+
+  //to get the value on the search
+  // inputBox.addEventListener("input",(e) => {// used in map used in then method
+  //   console.log(e.target.value)//this is the event
+  // });
+
+
 
 
 const devicons = {
